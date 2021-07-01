@@ -33,6 +33,9 @@
             }
         </style>
 
+        <!--至頂套件-->
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
+
     </head>
 
     <body background="https://lh3.googleusercontent.com/pw/ACtC-3dIUOuH-4aJ847Eky6vXO-zMcxFWS_B1naxAs7eiURe24lyyhxyYwiZqRb7KKrz0h7rUtHDxsRc2cnDa47g4LqKWtNA6Nju8MvuohsPA1OQ5iFIdmTgyrKREW4flw7osHSpiJgTbGCYq3GQxWA-sIsk=w1604-h903-no?authuser=3">
@@ -89,7 +92,7 @@
                             <iframe width="450" height="260" style="border: 1px solid #000000;" src="https://thingspeak.com/channels/1293610/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E7%92%B0%E5%A2%83%E4%BA%AE%E5%BA%A6%E8%AE%8A%E5%8C%96&type=spline&yaxis=%E4%BA%AE%E5%BA%A6"></iframe>
                         </li>
                         <li>
-                            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1293610/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E5%9C%9F%E5%A3%A4%E6%BF%95%E5%BA%A6%E8%AE%8A%E5%8C%96&type=line&xaxis=%E6%99%82%E9%96%93&yaxis=%E5%9C%9F%E5%A3%A4%E6%BF%95%E5%BA%A6"></iframe>
+                            <iframe width="450" height="260" style="border: 1px solid #000000;" src="https://thingspeak.com/channels/1293610/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E5%9C%9F%E5%A3%A4%E6%BF%95%E5%BA%A6%E8%AE%8A%E5%8C%96&type=line&xaxis=%E6%99%82%E9%96%93&yaxis=%E5%9C%9F%E5%A3%A4%E6%BF%95%E5%BA%A6"></iframe>
                         </li>
                     </ul>
                 </div>
@@ -111,6 +114,172 @@
             });
         });
         </script>
+
+        <!-- 回到頂端按鈕 start -->
+        <script>
+            //<![CDATA[
+            (function () {
+                            $("body").append("<img id='goTopButton' style='display: none; z-index: 5; cursor: pointer;' title='回到頂端'/>");
+                            var img = "https://lh3.googleusercontent.com/B1mPJDotoN23MyqXhu54P2F03tKmqu4-XYMSuDHb7u8l7PSEN01DXyzlqXCGmpy1YxJeuDH_cr8iBWPwtjulkEG4CFy3rwT7sNAabA9W0UwzT8ghLepQnu9Q28dXMmAuIF3qxksTrt4jXcTUkN_Vn6hUyHTdehGlILaHTrDSE4lhN2hI0aiEkaCN4CAxYPPC7d_1eoJ8mmx4YlTCJlyJOb2hpkOUL3X9cQA_M6K1beffUln-SOfuraNFgoq2PPgxHnAJMfckL49Z9AcTYbWvMo4EvcDPWn4N2IvPi0fbOXS8Uev17_k6UyaQOM8zMN0xM08tlvDmHgoySMtbGqMqbk_8_augLcqyHF16-jhPIoOvw7TR3Hl8lf0jq5e6L1zF4HFIfvGxPyo75d4ndx5Pi1ZKZFoXViBZw5Y5R1DDfcRXUDmAEpd8-6V068Emkh6wMLvpJUHGfWoIxU_2RK6-62TV5ikzEhqDjQGuuTT1VQeu3h-1AtuKdNJs0yAAB2gPmF-bL3HCOlKsUh0proN1uiteRjxd7L8yp29FlhoAR_TVC0FK8H0RXiq1KwcBJ6DrqmfOAfZ8ksJZ9Mq70AaPepT8APnQT6iuYo__y1zGATyCc8ArsXqy2l8kTK-QPOPYheUlAwWtbFul4LUadBwzjz_S6kZ15Ms7Jrwzgr1JtvvzLubAXldIWsfjf6q0MaZh_lCPzMRMxYqDOvZD9Q7BfC4=w50-h61-no?authuser=1",
+                            locatioin = 1/2, // 按鈕出現在螢幕的高度
+                            right = 10, // 距離右邊 px 值
+                            opacity = 0.3, // 透明度
+                            speed = 500, // 捲動速度
+                            $button = $("#goTopButton"),
+                            $body = $(document),
+                            $win = $(window);
+                            $button.attr("src", img);
+                            $button.on({
+                                mouseover: function() {$button.css("opacity", 1);},
+                                mouseout: function() {$button.css("opacity", opacity);},
+                                click: function() {$("html, body").animate({scrollTop: 0}, speed);}
+                            });
+                            window.goTopMove = function () {
+                                var scrollH = $body.scrollTop(),
+                                winH = $win.height(),
+                                css = {"top": winH * locatioin + "px", "position": "fixed", "right": right, "opacity": opacity};
+                                if(scrollH > 20) {
+                                $button.css(css);
+                                $button.fadeIn("slow");
+                                } else {
+                                $button.fadeOut("slow");
+                                }
+                            };
+                            $win.on({
+                                scroll: function() {goTopMove();},
+                                resize: function() {goTopMove();}
+                            });
+                        } )();
+            //]]>
+        </script>
+        <!-- 回到頂端按鈕 end-->
+
+        <!-- Footer -->
+        <footer class="text-center text-lg-start bg-light text-muted">
+            <!-- Section: Social media -->
+            <section
+            class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+            >
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>國立嘉義大學生物機電工程學系旺旺實驗室　版權所有</span>
+            </div>
+            <!-- Left -->
+        
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 text-reset">
+                <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+        
+            <!-- Section: Links  -->
+            <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>Wang Wang's Lab
+                    </h6>
+                    
+                    <p>國立嘉義大學生物機電工程學系</p><br>
+                    <p>網頁製作人：林正浩 學生</p><br>
+                    <p>指導教授：楊朝旺 老師</p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                    Products
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset">Angular</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset">React</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset">Vue</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset">Laravel</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                    Useful links
+                    </h6>
+                    <p>
+                    <a href="#!" class="text-reset">Pricing</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset">Settings</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset">Orders</a>
+                    </p>
+                    <p>
+                    <a href="#!" class="text-reset">Help</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                    Contact
+                    </h6>
+                    <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                    <p>
+                    <i class="fas fa-envelope me-3"></i>
+                    info@example.com
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                    <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                </div>
+                <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            </section>
+            <!-- Section: Links  -->
+        
+            <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2021 國立嘉義大學生物機電工程學系:
+            <a class="text-reset fw-bold" href="https://www.ncyu.edu.tw/bioeng/">ncyu.edu.tw</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
     </body>
     
 </html>
