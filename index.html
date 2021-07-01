@@ -17,6 +17,10 @@
         <link href="css/bootstrap.min.css" rel="stylesheet"/>
         <script src="js/bootstrap.min.js"></script>
         -->
+        
+        <!--滑動觸屏框架包-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel='stylesheet' href='https://npmcdn.com/flexslider@2.6.0/flexslider.css'>             
 
         <!--背景設定-->
         <style>
@@ -48,34 +52,64 @@
             <!--當下數據-->
             <div class="row mb-3">
                 <p>當下數據</p>
-                <div class="col-md-12 col-lg-4 themed-grid-col">
-                    <iframe width="450" height="260" style="border: 1px solid #ffffff;" src="https://thingspeak.com/channels/1293610/widgets/307304"></iframe>
-                </div>
-                <div class="col-md-12 col-lg-4 themed-grid-col">
-                    <iframe width="450" height="260" style="border: 1px solid #FFFFFF;" src="https://thingspeak.com/channels/1293610/widgets/307305"></iframe>
-                </div>
-                <div class="col-md-12 col-lg-4 themed-grid-col">
-                    <iframe width="450" height="260" style="border: 1px solid #ffffff;" src="https://thingspeak.com/channels/1293610/widgets/307306"></iframe>
+                <div class="flexslider" style="width:460px; margin-left:100px;">
+                    <ul class="slides">
+                        <li>
+                            <p>環境溫度</p>
+                            <iframe width="450" height="260" style="border: 1px solid #ffffff;" src="https://thingspeak.com/channels/1293610/widgets/307304"></iframe>
+                        </li>
+                        <li>
+                            <p>環境濕度</p>
+                            <iframe width="450" height="260" style="border: 1px solid #FFFFFF;" src="https://thingspeak.com/channels/1293610/widgets/307305"></iframe>
+                        </li>
+                        <li>
+                            <p>環境亮度</p>
+                            <iframe width="450" height="260" style="border: 1px solid #ffffff;" src="https://thingspeak.com/channels/1293610/widgets/307306"></iframe>
+                        </li>
+                        <li>
+                            <p>土壤濕度</p>
+                            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1293610/widgets/312992"></iframe>                        </li>
+                    </ul>
                 </div>
             </div>
+
             <!--歷史數據圖表-->
             <div class="row mb-3">
                 <p>歷史數據</p>
-                <div class="col-md-12 col-lg-4 themed-grid-col">
-                    <iframe width="450" height="260" style="border: 1px solid #FFFFFF;" src="https://thingspeak.com/channels/1293610/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E7%92%B0%E5%A2%83%E6%BA%AB%E5%BA%A6%E8%AE%8A%E5%8C%96&type=spline&yaxis=%E6%BA%AB%E5%BA%A6"></iframe>
+                <div class="flexslider" style="width:460px; margin-left:100px;">
+                    <ul class="slides">
+                        <li>
+                            <iframe width="450" height="260" style="border: 1px solid #000000;" src="https://thingspeak.com/channels/1293610/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E7%92%B0%E5%A2%83%E6%BA%AB%E5%BA%A6%E8%AE%8A%E5%8C%96&type=spline&yaxis=%E6%BA%AB%E5%BA%A6"></iframe>
+                        </li>
+                        <li>
+                            <iframe width="450" height="260" style="border: 1px solid #000000;" src="https://thingspeak.com/channels/1293610/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E7%92%B0%E5%A2%83%E6%BF%95%E5%BA%A6%E8%AE%8A%E5%8C%96&type=spline&yaxis=%E6%BF%95%E5%BA%A6"></iframe>
+                        </li>
+                        <li>
+                            <iframe width="450" height="260" style="border: 1px solid #000000;" src="https://thingspeak.com/channels/1293610/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E7%92%B0%E5%A2%83%E4%BA%AE%E5%BA%A6%E8%AE%8A%E5%8C%96&type=spline&yaxis=%E4%BA%AE%E5%BA%A6"></iframe>
+                        </li>
+                        <li>
+                            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1293610/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E5%9C%9F%E5%A3%A4%E6%BF%95%E5%BA%A6%E8%AE%8A%E5%8C%96&type=line&xaxis=%E6%99%82%E9%96%93&yaxis=%E5%9C%9F%E5%A3%A4%E6%BF%95%E5%BA%A6"></iframe>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="col-md-12 col-lg-4 themed-grid-col">
-                    <iframe width="450" height="260" style="border: 1px solid #FFFFFF;" src="https://thingspeak.com/channels/1293610/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E7%92%B0%E5%A2%83%E6%BF%95%E5%BA%A6%E8%AE%8A%E5%8C%96&type=spline&yaxis=%E6%BF%95%E5%BA%A6"></iframe>
-                </div>
-
-                <div class="col-md-12 col-lg-4 themed-grid-col">
-                    <iframe width="450" height="260" style="border: 1px solid #FFFFFF;" src="https://thingspeak.com/channels/1293610/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=%E7%92%B0%E5%A2%83%E4%BA%AE%E5%BA%A6%E8%AE%8A%E5%8C%96&type=spline&yaxis=%E4%BA%AE%E5%BA%A6"></iframe>
-                </div>
             </div>
-
-
         </div>
+
+
+
+        <!-- 滑動顯示部分 -->
+        <script src='https://npmcdn.com/jquery@3.1.0'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider.js'></script>
+        <script>
+        $(function() {
+            $(".flexslider").flexslider({
+            slideshowSpeed: 5000, //自動滑動時間間隔ms
+            animationSpeed: 500, //滾動時間ms
+            touch: true //是否支持觸屏滑動
+            });
+        });
+        </script>
     </body>
     
 </html>
